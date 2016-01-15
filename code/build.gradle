@@ -1,0 +1,23 @@
+apply plugin: "antlr"
+apply plugin: "java"
+
+repositories {
+  mavenCentral()
+}
+
+sourceSets {
+  main {
+    antlr {
+      include "bad.g4"
+    }
+  }
+}
+
+generateGrammarSource {
+  arguments += [
+    "-visitor",
+    "-lib", "."
+  ]
+}
+
+
